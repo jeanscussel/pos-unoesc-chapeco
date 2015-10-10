@@ -1,0 +1,21 @@
+<html lang="en">
+	<head>
+		<title>Aula HTML5</title>
+		<meta charset="UTF-8" />
+		<script src="cnpj.js">			
+			function vCNPJ(input){
+				var mensagem = "";
+				if(!validarCNPJ(input.value)){
+					mensagem = "CNPJ Inválido!";
+				}
+					input.setCustomValidity(mensagem);
+			}
+		</script>
+	</head>
+	<body>
+		<form>
+			<label>CNPJ: <input name="CNPJ" oninput="vCNPJ(this)" /></label>
+			<input type="submit" value="Enviar"/>
+		</form>
+	</body>	
+</html>
