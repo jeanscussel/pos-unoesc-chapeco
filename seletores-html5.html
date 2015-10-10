@@ -1,0 +1,26 @@
+<html lang="en">
+	<head>
+		<title>Seletores HTML5</title>
+		<meta charset="UTF-8" />
+
+	</head>
+	<body>
+		<nav id="menu">
+			<ul id="menu-list">
+				<li class="item"><a href="#">HOME</a></li>
+				<li class="item"><a href="#">SIGN IN</a></li>
+				<li class="item"><a href="#">ABOUT</a></li>
+				<li class="item"><a href="#">CONTAC</a></li>
+			</ul>
+		</nav>
+		<script type="text/javascript">
+			var intens = document.getElementsByClassName('item');
+			console.log(intens)
+
+			function adicionaItem(valor){
+				document.getElementById('menu-list').innerHTML += "<li>"+valor+"</li>";
+			}
+			adicionaItem("Jean");
+		</script>
+	</body>	
+</html>
