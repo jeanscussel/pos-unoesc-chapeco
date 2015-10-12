@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    #status {
+      position: fixed;
+      width: 100%;
+      font: bold 1em sans-serif;
+      color: #FFF;
+      padding: 0.5em;
+    }
+    #log {
+      padding: 2.5em 0.5em 0.5em;
+      font: 1em sans-serif;
+    }
+    .online {
+      background: green;
+    }
+    .offline {
+      background: red;
+    }
+  </style>
+</head>
+<body>
+
+
+  <div id="status"></div>
+  <div id="log"></div>
+  <p>This is a test</p>
+
+  <input type="button" id="notify" value="Notify in 5 seconds"
+    onclick="notify('Irá notificar em 5 segundos...');setTimeout('notify(\'Eventoo!\')',5000)" />
+  <div id="msg"></div>
+
+  <script>
+    window.addEventListener('load', function() {
+      var status = document.getElementById("status");
+      function updateOnlineStatus(event) {
+        var condition = navigator.onLine ? "online" : "offline";
+        status.className = condition;
+        status.innerHTML = condition.toUpperCase();
+        log.insertAdjacentHTML("beforeend", "Event: " + event.type + "; Status: " + condition);
+      }
+      window.addEventListener('online',  updateOnlineStatus);
+      window.addEventListener('offline', updateOnlineStatus);
+    });
+// HASFOCUS 
+
+    function notify(text){
+      document.getElementById('msg').innerHTML+='<p>'+text+'</p>';
+      //titleFlick()
+      setInterval('titleFlick()',1000);
+      }
+      function titleFlick(){
+        if(document.hasFocus()){
+        document.title='Notifier';
+        return;
+      }
+      document.title=document.title=='Notifier'?'* Notifier':'Notifier';
+      //setTimeout('titleFlick()',500)
+    }
+  </script>
+</body>
+</html>
